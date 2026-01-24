@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -8,9 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -38,7 +40,7 @@
             scroll-behavior: smooth;
         }
         body {
-            font-family: "Raleway", sans-serif;
+            font-family: "Poppins", sans-serif;
         }
         .chrome-text { color: #cba135; }
         .chrome-bg { background-color: #cba135; }
@@ -56,13 +58,48 @@
             transition: 0.3s ease;
             z-index: 50;
         }
+        
+        /* Floating Buttons Positioning */
         #backToTop {
             position: fixed;
-            bottom: 20px;
+            bottom: 25px;
             right: 20px;
             display: none;
             cursor: pointer;
             z-index: 1000;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        #whatsappFloat {
+            position: fixed;
+            bottom: 25px;
+            right: 85px; /* Sits beside the arrow */
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        #whatsappFloat:hover {
+            transform: scale(1.1) translateY(-3px);
+            background-color: #128C7E;
+        }
+
+        @media (max-width: 768px) {
+            #whatsappFloat { right: 75px; width: 45px; height: 45px; }
+            #backToTop { right: 15px; width: 45px; height: 45px; }
         }
 
         #photoconteneur { 
@@ -74,7 +111,9 @@
             position: relative; 
             border-radius: 20px;
             border: 1px solid rgba(203, 161, 53, 0.2);
+            background-color: #000;
         }
+
         @media (max-width: 768px) {
             #photoconteneur { height: 320px; }
         }
@@ -88,24 +127,23 @@
             opacity: 0;
             background-position: center !important;
             background-size: cover !important;
+            will-change: opacity, transform;
         }
 
         @keyframes fadeSlide {
-            0% { opacity: 0; transform: scale(1.05); }
-            5% { opacity: 1; transform: scale(1); }
-            20% { opacity: 1; }
-            25% { opacity: 0; }
+            0% { opacity: 0; transform: scale(1.1); }
+            3% { opacity: 1; } 
+            25% { opacity: 1; transform: scale(1); }
+            28% { opacity: 0; }
             100% { opacity: 0; }
         }
 
-        #photo1 { animation: fadeSlide 20s infinite; animation-delay: 0s; background:url('set-1.jpeg') no-repeat; }
-        #photo2 { animation: fadeSlide 20s infinite; animation-delay: 5s; background:url('set-3.png') no-repeat; }
-        #photo3 { animation: fadeSlide 20s infinite; animation-delay: 10s; background:url('set-4.png') no-repeat; }
-        #photo4 { animation: fadeSlide 20s infinite; animation-delay: 15s; background:url('set-5.png') no-repeat; }
+        #photo1 { animation: fadeSlide 12s infinite; animation-delay: 0s; background:url('set-1.jpeg'); }
+        #photo2 { animation: fadeSlide 12s infinite; animation-delay: 3s; background:url('set-3.png'); }
+        #photo3 { animation: fadeSlide 12s infinite; animation-delay: 6s; background:url('set-4.png'); }
+        #photo4 { animation: fadeSlide 12s infinite; animation-delay: 9s; background:url('set-5.png'); }
 
-        
-
-         .hover-gold:hover {
+        .hover-gold:hover {
             background-color: #CBA135 !important;
             border-color: #CBA135 !important;
             transform: translateY(-5px);
@@ -119,32 +157,38 @@
 
 <body class="bg-brand-dark text-gray-200">
 
-<header class="w-full py-4 px-8 flex justify-between items-center border-b border-gray-800 sticky top-0 bg-brand-dark/95 z-50">
-    <div class="text-2xl font-bold tracking-tighter chrome-text">
-        4K FILM<br />
-        <span class="text-white text-sm tracking-widest">PRODUCTION</span>
+<header class="w-full py-4 px-8 flex justify-between items-center border-b border-gray-800 fixed top-0 left-0 bg-brand-dark/95 z-50">
+    <div class="text-2xl font-bold tracking-tighter chrome-text leading-tight">
+        4K POD<br />
+        <span class="text-white text-[10px] md:text-sm tracking-widest block">BY 4K FILM PRODUCTION</span>
     </div>
-    <nav class="hidden md:flex space-x-8 text-sm font-semibold">
+
+    <nav class="hidden md:flex space-x-8 text-sm font-semibold text-white">
         <a href="#podcasts" class="hover:text-brand-gold transition">PODCASTS</a>
         <a href="#rental-packages" class="hover:text-brand-gold transition">RENTAL</a>
-        <a href="#full-production" class="hover:text-brand-gold transition">PRODUCTION</a>
         <a href="#contact" class="hover:text-brand-gold transition">CONTACT</a>
     </nav>
-    <button id="menu-btn" class="md:hidden text-brand-gold text-3xl">☰</button>
+
+    <button id="menu-btn" class="md:hidden text-brand-gold text-3xl focus:outline-none">☰</button>
+
+    <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-brand-dark border-b border-gray-800 flex flex-col items-center py-6 space-y-4 md:hidden">
+        <a href="#podcasts" class="text-white font-semibold hover:text-brand-gold transition">PODCASTS</a>
+        <a href="#rental-packages" class="text-white font-semibold hover:text-brand-gold transition">RENTAL</a>
+        <a href="#contact" class="text-white font-semibold hover:text-brand-gold transition">CONTACT</a>
+    </div>
 </header>
 
-<nav id="mobile-menu" class="hidden flex-col space-y-4 text-center text-lg font-semibold bg-brand-dark py-6 border-b border-gray-800 md:hidden sticky top-[73px] z-40">
-    <a href="#podcasts" class="mobile-link block hover:text-brand-gold">PODCASTS</a>
-    <a href="#rental-packages" class="mobile-link block hover:text-brand-gold">RENTAL</a>
-    <a href="#full-production" class="mobile-link block hover:text-brand-gold">PRODUCTION</a>
-    <a href="#contact" class="mobile-link block hover:text-brand-gold">CONTACT</a>
-</nav>
+<div class="h-20 md:h-24"></div>
+ 
+ 
+  
 
-<section id="home" class="relative w-full h-[80vh] bg-cover bg-center flex items-end" style="background-image:url(hero-img.jpg);">
+
+<section id="home" class="relative w-full h-[80vh] bg-cover bg-center flex items-end justify-center" style="background-image:url(set-4.png);">
     <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
-    <div class="relative z-10 p-10 max-w-4xl" data-aos="fade-up">
+    <div class="relative z-10 pb-6 px-10 max-w-4xl text-center flex flex-col items-center" data-aos="fade-up">
         <h1 class="text-5xl md:text-7xl font-bold text-white mb-4">
-            ELEVATE YOUR <br /><span class="chrome-text">VOICE</span>
+            Your <span class="chrome-text">Story</span> <br />Our<span class="chrome-text"> Studio</span>
         </h1>
         <p class="text-xl text-gray-300 max-w-xl">
             Experience Pune's premium 4K podcast studio with cinematic lighting, professional audio & stunning set design.
@@ -193,273 +237,279 @@
 
 <section id="about-team" class="py-20 bg-brand-card">
     <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-3xl font-bold uppercase tracking-widest text-center mb-16">
-            Featured <span class="chrome-text">Guests</span>
-        </h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-
-            <div class="w-full p-6 glass-card gold-border rounded-lg transform hover:scale-105 transition-all duration-300 group hover-gold" data-aos="fade-up" data-aos-delay="100">
-              <div class="w-32 h-32 mx-auto mb-6">
-             <img class="rounded-full w-full h-full object-cover" src="dhanesh kulkarni.png"></div>
-             <h3 class="text-xl font-bold text-white group-hover:text-black">DHANESH KULKARNI</h3>
-             <p class="text-gray-300 group-hover:text-black">( Host )</p>
-             <p class="text-gray-400 mt-2 text-sm group-hover:text-black">
-              Dhanesh is an industry professional with 20+ years in communications.    
-            </p>
+        <h2 class="text-3xl font-bold uppercase tracking-widest text-center mb-16">Featured <span class="chrome-text">Guests</span></h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center mb-8 max-w-4xl mx-auto">
+            <div class="w-full p-6 glass-card gold-border rounded-lg transform hover:scale-105 transition-all duration-300 group hover-gold" data-aos="fade-up">
+              <div class="w-32 h-32 mx-auto mb-6"><img class="rounded-full w-full h-full object-cover" src="dhanesh kulkarni.png"></div>
+              <h3 class="text-xl font-bold text-white group-hover:text-black">DHANESH KULKARNI</h3>
+              <p class="text-gray-300 group-hover:text-black">( Host )</p>
+              <p class="text-gray-400 mt-2 text-sm group-hover:text-black">Dhanesh is an industry professional with 20+ years in communications.</p>
             </div>
 
-            <div class="w-full p-6 glass-card gold-border rounded-lg transform hover:scale-105 transition-all duration-300 group hover-gold" data-aos="fade-up" data-aos-delay="100">
-              <div class="w-32 h-32 mx-auto mb-6">
-             <img class="rounded-full w-full h-full object-cover" src="prem sawant.png"></div>
-             <h3 class="text-xl font-bold text-white group-hover:text-black">PREM SAWANT</h3>
-             <p class="text-gray-300 group-hover:text-black">( Host )</p>
-             <p class="text-gray-400 mt-2 text-sm group-hover:text-black">
-              Literature scholar exploring human struggles and victories.    
-            </p>
+            <div class="w-full p-6 glass-card gold-border rounded-lg transform hover:scale-105 transition-all duration-300 group hover-gold" data-aos="fade-up" data-aos-delay="200">
+              <div class="w-32 h-32 mx-auto mb-6"><img class="rounded-full w-full h-full object-cover" src="pratik mundkar1.jpeg"></div>
+              <h3 class="text-xl font-bold text-white group-hover:text-black">PRATIK MUNDKAR</h3>
+              <p class="text-gray-300 group-hover:text-black">( Host )</p>
+              <p class="text-gray-400 mt-2 text-sm group-hover:text-black">Entrepreneur known for engaging long-form conversations.</p>
             </div>
+        </div>
 
-            <div class="w-full p-6 glass-card gold-border rounded-lg transform hover:scale-105 transition-all duration-300 group hover-gold" data-aos="fade-up" data-aos-delay="100">
-              <div class="w-32 h-32 mx-auto mb-6">
-             <img class="rounded-full w-full h-full object-cover" src="pratik mundkar.jpeg"></div>
-             <h3 class="text-xl font-bold text-white group-hover:text-black">PRATIK MUNDKAR</h3>
-             <p class="text-gray-300 group-hover:text-black">( Host )</p>
-             <p class="text-gray-400 mt-2 text-sm group-hover:text-black">
-              Entrepreneur known for engaging long-form conversations.
-            </p>
-            </div>
-         
-            <div class="md:col-span-3 flex flex-wrap justify-center gap-8">
-  
-              <div class="w-full md:w-1/3 p-6 glass-card gold-border rounded-lg transform hover:scale-105 transition-all duration-300 group hover-gold" data-aos="fade-up" data-aos-delay="400">
-                <div class="w-32 h-32 mx-auto mb-6">
-                     <img class="rounded-full w-full h-full object-cover" src="prasad kulkarni.png">
-                </div>
-                <h3 class="text-xl font-bold text-white group-hover:text-black">PRASAD KULKARNI</h3>
-                <p class="text-gray-300 group-hover:text-black">( Production Head )</p>
-                <p class="text-gray-400 mt-2 text-sm group-hover:text-black">
+        <div class="flex flex-wrap justify-center gap-8 text-center">
+            <div class="w-full md:w-[30%] p-6 glass-card gold-border rounded-lg transform hover:scale-105 transition-all duration-300 group hover-gold" data-aos="fade-up">
+              <div class="w-32 h-32 mx-auto mb-6"><img class="rounded-full w-full h-full object-cover" src="prasad kulkarni.png"></div>
+              <h3 class="text-xl font-bold text-white group-hover:text-black">PRASAD KULKARNI</h3>
+              <p class="text-gray-300 group-hover:text-black">( Production Co-ordinator )</p>
+              <p class="text-gray-400 mt-2 text-sm group-hover:text-black">
                      12+ years of experience across film crews and production design.</p>
-              </div>
+            </div>
 
-               <div class="w-full md:w-1/3 p-6 glass-card gold-border rounded-lg transform hover:scale-105 transition-all duration-300 group hover-gold" data-aos="fade-up" data-aos-delay="400">
-                <div class="w-32 h-32 mx-auto mb-6">
-                     <img class="rounded-full w-full h-full object-cover" src="pranit namjoshi.png">
-                </div>
-                <h3 class="text-xl font-bold text-white group-hover:text-black">PRANIT NAMJOSHI</h3>
-                <p class="text-gray-300 group-hover:text-black">( Production Consultant )</p>
-                <p class="text-gray-400 mt-2 text-sm group-hover:text-black">
+            <div class="w-full md:w-[30%] p-6 glass-card gold-border rounded-lg transform hover:scale-105 transition-all duration-300 group hover-gold" data-aos="fade-up" data-aos-delay="100">
+              <div class="w-32 h-32 mx-auto mb-6"><img class="rounded-full w-full h-full object-cover" src="prem sawant.png"></div>
+              <h3 class="text-xl font-bold text-white group-hover:text-black">PREM SAWANT</h3>
+              <p class="text-gray-300 group-hover:text-black">(  Production Head )</p>
+              <p class="text-gray-400 mt-2 text-sm group-hover:text-black">Literature scholar exploring human struggles and victories.</p>
+            </div>
+
+             <div class="w-full md:w-[30%] p-6 glass-card gold-border rounded-lg transform hover:scale-105 transition-all duration-300 group hover-gold" data-aos="fade-up" data-aos-delay="200">
+              <div class="w-32 h-32 mx-auto mb-6"><img class="rounded-full w-full h-full object-cover" src="pranit namjoshi.png"></div>
+              <h3 class="text-xl font-bold text-white group-hover:text-black">PRANIT NAMJOSHI</h3>
+              <p class="text-gray-300 group-hover:text-black">( Production Consultant )</p>
+              <p class="text-gray-400 mt-2 text-sm group-hover:text-black">
                       Extensive post-production experience across corporate and filmmaking.
                 </p>
-              </div>
             </div>
         </div>
     </div>
 </section>
- 
 
-<section id="rental-packages" class="py-20 px-6 max-w-6xl mx-auto border-t border-gray-800">
-    <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold uppercase"><span class="chrome-text">Studio Rental</span> Packages</h2>
-        <p class="text-gray-400 mt-2">Space • Lighting • Professional Audio</p>
-    </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-        
-        <div class="p-8 rounded-xl glass-card border border-gray-700 glow-card relative" data-aos="fade-up">
-            <h3 class="text-2xl font-bold text-white mb-2">Basic Studio</h3>
-            <div class="text-4xl chrome-text font-bold mb-6">₹1,500 <span class="text-gray-400 text-sm">/ 90 Mins</span></div>
-            <ul class="text-gray-300 space-y-2 text-sm mb-8">
-                <li>• Podcast ready setup</li>
-                <li>• Wireless Microphones</li>
-                <li>• Basic Technical Support</li>
-            </ul>
-            <a href="#contact" class="block text-center w-full border border-gray-500 text-white py-2 rounded hover:border-brand-gold transition">Select Plan</a>
-        </div>
-
-        <div class="p-8 rounded-xl glass-card border border-gray-600 glow-card relative" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="text-2xl font-bold text-white mb-2">Standard Video</h3>
-            <div class="text-4xl chrome-text font-bold mb-6">₹3,000 <span class="text-gray-400 text-sm">/ 90 Mins</span></div>
-            <ul class="text-gray-300 space-y-2 text-sm mb-8">
-                <li>• 1 Sony 4K Camera</li>
-                <li>• Pro Lighting Setup</li>
-                <li>• Ideal for Solo Podcast</li>
-            </ul>
-            <a href="#contact" class="block text-center w-full chrome-bg text-black font-bold py-2 rounded hover:bg-white transition">Select Plan</a>
-        </div>
-
-        <div class="p-8 rounded-xl glass-card border border-brand-gold glow-card relative shadow-2xl bg-brand-dark/40" data-aos="fade-up" data-aos-delay="200">
-            <div class="absolute -top-3 right-3 bg-brand-gold text-black text-xs px-3 py-1 font-bold rounded">BEST VALUE</div>
-            <h3 class="text-2xl font-bold text-white mb-2">Ankathit Talks</h3>
-            <div class="text-4xl chrome-text font-bold mb-6">₹3,000 <span class="text-gray-400 text-sm">/ 60 Mins</span></div>
-            <ul class="text-gray-300 space-y-2 text-sm mb-8">
-                <li class="flex items-start"><span>•</span><span class="ml-2">Podcast seating & set (60 MINS)</span></li>
-                <li>• 2 Sony 4K Cameras</li>
-                <li>• Professional lighting setup</li>
-                <li>• Wireless microphones</li>
-                <li class="font-bold text-white">• High End Editing + Shorts / Reels</li>
-            </ul>
-            <a href="#contact" class="block text-center w-full chrome-bg text-black font-bold py-2 rounded hover:bg-white transition">Select Plan</a>
-        </div>
-
-        <div class="p-8 rounded-xl glass-card border border-gray-600 glow-card relative" data-aos="fade-up" data-aos-delay="300">
-            <div class="absolute -top-3 right-3 bg-brand-gold text-black text-xs px-3 py-1 font-bold rounded">MOST POPULAR</div>
-            <h3 class="text-2xl font-bold text-white mb-2">Platinum Package</h3>
-            <div class="text-4xl chrome-text font-bold mb-6">₹6,000 <span class="text-gray-400 text-sm">/ 90 Mins</span></div>
-            <ul class="text-gray-300 space-y-2 text-sm mb-8">
-                <li>• 3 Sony 4K Cameras</li>
-                <li>• Advanced Cinematic Lighting</li>
-                <li>• Full Studio Access</li>
-            </ul>
-            <a href="#contact" class="block text-center w-full chrome-bg text-black font-bold py-3 rounded hover:bg-white transition">Select Plan</a>
-        </div>
-
-    </div>
-</section>
-
-<section id="full-production" class="py-20 px-6 max-w-7xl mx-auto border-t border-gray-800">
-    <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold uppercase">
-            <span class="chrome-text">Full Production</span> Packages
+<section id="rental-packages" class="py-20 bg-black text-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 uppercase tracking-tight">
+            Studio Podcast <span class="chrome-text">Packages</span>
         </h2>
-        <p class="text-gray-400 mt-2">Editing • Grading • Viral Reels</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-        <div class="bg-brand-card p-8 rounded-xl glow-card border border-gray-700 relative" data-aos="fade-right">
-            <div class="hover-popup absolute -top-28 left-1/2 -translate-x-1/2 bg-yellow-500/95 text-white px-5 py-4 rounded-xl shadow-xl w-64">
-                <p class="font-bold mb-2 text-sm">🎬 Post Production</p>
-                <ul class="text-xs space-y-1 text-yellow-100">
-                    <li>✂ Full Episode Editing</li>
-                    <li>⏱ Up to 1 Hour</li>
-                    <li>🎨 Color & Audio Polish</li>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="group relative bg-white/[0.03] backdrop-blur-xl p-8 rounded-2xl border border-white/10 flex flex-col transition-all duration-500 hover:bg-white/[0.08] hover:border-brand-gold/50 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                
+                <h3 class="text-xl font-bold uppercase tracking-wider mb-2 relative z-10">PRO RENTAL</h3>
+                <p class="text-gray-400 text-sm mb-6 relative z-10">Perfect for podcasters or creators who want full control over production.</p>
+                <div class="text-3xl font-bold text-brand-gold mb-6 relative z-10">₹1,500</div>
+                
+                <ul class="text-sm space-y-3 mb-8 flex-grow text-gray-300 relative z-10">
+                    <li class="flex items-start gap-2"><span>•</span> 90-minute podcast-ready studio</li>
+                    <li class="flex items-start gap-2"><span>•</span> Professional lighting setup</li>
+                    <li class="flex items-start gap-2"><span>•</span> Wireless microphones</li>
+                    <li class="flex items-start gap-2"><span>•</span> 4 podcast set options</li>
+                    <li class="flex items-start gap-2"><span>•</span> Basic technical support</li>
                 </ul>
-                <p class="mt-2 font-semibold text-sm">₹3,000 / Episode</p>
+                
+                <div class="text-[10px] text-gray-500 mb-6 uppercase leading-tight relative z-10">
+                    Extra time ₹500 / 30 min<br>
+                    1 Cam ₹1,500 • 2 Cams ₹3,000 • 3 Cams ₹4,500
+                </div>
+                <a href="#" class="relative z-10 block text-center bg-brand-gold text-black font-bold py-3 rounded-lg hover:bg-white transition-colors duration-300">Book Session</a>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">Post-Production Only</h3>
-            <div class="text-3xl chrome-text font-bold mb-6">₹3,000 <span class="text-sm text-gray-400">/ Episode</span></div>
-            <ul class="space-y-3 text-gray-400 text-sm mb-8">
-                <li>• High-end Editing</li>
-                <li>• 1 Hour Episode</li>
-                <li>• Color + Audio Enhancement</li>
-                <li>• Extra: ₹500 per 15 mins</li>
-            </ul>
-            <button class="w-full border border-gray-600 text-gray-300 py-2 rounded hover:border-yellow-400 hover:text-yellow-400 transition">Inquire</button>
-        </div>
 
-        <div class="bg-brand-card p-8 rounded-xl glow-card border border-yellow-400/40 shadow-lg relative" data-aos="fade-up">
-            <div class="absolute top-2 right-2 bg-yellow-400 text-black text-xs px-3 py-1 font-bold rounded">RECOMMENDED</div>
-            <div class="hover-popup absolute -top-28 left-1/2 -translate-x-1/2 bg-yellow-500/95 px-5 py-4 text-white rounded-xl shadow-xl w-64">
-                <p class="font-bold mb-2 text-sm">🔥 Studio Originals</p>
-                <ul class="text-xs space-y-1 text-yellow-100">
-                    <li>🎥 3 Camera Setup</li>
-                    <li>🎞 Full Edit</li>
-                    <li>📱 5 Reels Included</li>
-                </ul>
-                <p class="mt-2 font-semibold text-sm">₹5,000 / Episode</p>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-2">Studio Originals</h3>
-            <div class="text-3xl chrome-text font-bold mb-6">₹5,000 <span class="text-sm text-gray-400">/ Episode</span></div>
-            <ul class="space-y-3 text-gray-300 text-sm mb-8">
-                <li>• Recording + Editing</li>
-                <li>• 3 Camera Multi-angle</li>
-                <li>• 1 Hour Episode</li>
-                <li>• 5 Designed Reels</li>
-            </ul>
-            <button class="w-full chrome-bg text-black font-bold py-2 rounded hover:bg-white transition">Start Creating</button>
-        </div>
+            <div class="group relative bg-white/[0.05] backdrop-blur-xl p-8 rounded-2xl border border-brand-gold/40 flex flex-col transition-all duration-500 hover:bg-white/[0.1] hover:border-brand-gold hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(197,160,89,0.15)]">
+                <div class="absolute -top-3 left-6 bg-brand-gold text-black text-[10px] font-black px-3 py-1 rounded-full uppercase z-20 shadow-lg">Most Booked</div>
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
-        <div class="bg-brand-card p-8 rounded-xl glow-card border border-gray-700 relative" data-aos="fade-left">
-            <div class="hover-popup absolute -top-28 left-1/2 -translate-x-1/2 bg-yellow-500/95 text-white px-5 py-4 rounded-xl shadow-xl w-64">
-                <p class="font-bold mb-2 text-sm">🚀 Short Form Reels</p>
-                <ul class="text-xs space-y-1 text-yellow-100">
-                    <li>⚡ High Engagement</li>
-                    <li>📲 Instagram + YouTube</li>
-                    <li>🎯 Growth Optimized</li>
+                <h3 class="text-xl font-bold uppercase tracking-wider mb-2 relative z-10">Bolta Ayushya</h3>
+                <p class="text-gray-400 text-sm mb-6 relative z-10">Ideal for solo hosts who want a complete ready-to-upload package.</p>
+                <div class="text-3xl font-bold text-brand-gold mb-6 relative z-10">₹1,500</div>
+                
+                <ul class="text-sm space-y-3 mb-8 flex-grow text-gray-300 relative z-10">
+                    <li class="flex items-start gap-2"><span>•</span> 60-minute studio session</li>
+                    <li class="flex items-start gap-2"><span>•</span> 2 Sony 4K cameras</li>
+                    <li class="flex items-start gap-2"><span>•</span> Professional lighting</li>
+                    <li class="flex items-start gap-2"><span>•</span> Wireless microphone</li>
+                    <li class="flex items-start gap-2"><span>•</span> High-end editing</li>
+                    <li class="flex items-start gap-2"><span>•</span> Shorts / reels included</li>
                 </ul>
-                <p class="mt-2 font-semibold text-sm">₹300 / Reel</p>
+                <div class="text-[10px] text-gray-500 mb-6 uppercase relative z-10">Extra time ₹500 / 30 min</div>
+                <a href="#" class="relative z-10 block text-center bg-brand-gold text-black font-bold py-3 rounded-lg hover:bg-white transition-colors duration-300">Book Show</a>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">Short Form Content</h3>
-            <div class="text-3xl chrome-text font-bold mb-6">₹300 <span class="text-sm text-gray-400">/ Reel</span></div>
-            <ul class="space-y-3 text-gray-400 text-sm mb-8">
-                <li>• High-end Reels Editing</li>
-                <li>• Viral Hooks & Captions</li>
-                <li>• Social Media Optimized</li>
-                <li>• Add-on to any package</li>
-            </ul>
-            <button class="w-full border border-gray-600 text-gray-300 py-2 rounded hover:border-yellow-400 hover:text-yellow-400 transition">Order Now</button>
+
+            <div class="group relative bg-white/[0.03] backdrop-blur-xl p-8 rounded-2xl border border-white/10 flex flex-col transition-all duration-500 hover:bg-white/[0.08] hover:border-brand-gold/50 hover:-translate-y-2">
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+                <h3 class="text-xl font-bold uppercase tracking-wider mb-2 relative z-10">Platinum Podcast</h3>
+                <p class="text-gray-400 text-sm mb-6 relative z-10">Premium cinematic experience without editing.</p>
+                <div class="text-3xl font-bold text-brand-gold mb-6 relative z-10">₹6,000</div>
+                
+                <ul class="text-sm space-y-3 mb-8 flex-grow text-gray-300 relative z-10">
+                    <li class="flex items-start gap-2"><span>•</span> 90-minute studio rental</li>
+                    <li class="flex items-start gap-2"><span>•</span> 3 Sony 4K cinematic cameras</li>
+                    <li class="flex items-start gap-2"><span>•</span> Premium wireless microphones</li>
+                    <li class="flex items-start gap-2"><span>•</span> Advanced cinematic lighting</li>
+                </ul>
+                <div class="text-[10px] text-gray-500 mb-6 uppercase italic relative z-10">Raw footage only - No editing</div>
+                <a href="#" class="relative z-10 block text-center bg-brand-gold text-black font-bold py-3 rounded-lg hover:bg-white transition-colors duration-300">Reserve Slot</a>
+            </div>
+
+            <div class="group relative bg-white/[0.05] backdrop-blur-xl p-8 rounded-2xl border border-brand-gold/40 flex flex-col transition-all duration-500 hover:bg-white/[0.1] hover:border-brand-gold hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(197,160,89,0.15)]">
+                <div class="absolute -top-3 left-6 bg-brand-gold text-black text-[10px] font-black px-3 py-1 rounded-full uppercase z-20 shadow-lg">Best Value</div>
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+                <h3 class="text-xl font-bold uppercase tracking-wider mb-2 leading-tight relative z-10">Platinum – With Editing</h3>
+                <p class="text-gray-400 text-sm mb-6 relative z-10">All-in premium package — record, edit, and go live.</p>
+                <div class="text-3xl font-bold text-brand-gold mb-6 relative z-10">₹10,000</div>
+                
+                <ul class="text-sm space-y-3 mb-8 flex-grow text-gray-300 relative z-10">
+                    <li class="flex items-start gap-2"><span>•</span> 3 Sony 4K cameras</li>
+                    <li class="flex items-start gap-2"><span>•</span> Premium microphones</li>
+                    <li class="flex items-start gap-2"><span>•</span> Cinematic lighting</li>
+                    <li class="flex items-start gap-2"><span>•</span> Full episode edit (1 hour)</li>
+                    <li class="flex items-start gap-2"><span>•</span> 5 high-engagement reels</li>
+                </ul>
+                <div class="text-[10px] text-gray-500 mb-6 uppercase relative z-10">Extra reel ₹300 | Extra edit ₹500 / 15 min</div>
+                <a href="#" class="relative z-10 block text-center bg-brand-gold text-black font-bold py-3 rounded-lg hover:bg-white transition-colors duration-300">Go Platinum</a>
+            </div>
+
+            <div class="group relative bg-white/[0.03] backdrop-blur-xl p-8 rounded-2xl border border-white/10 flex flex-col transition-all duration-500 hover:bg-white/[0.08] hover:border-brand-gold/50 hover:-translate-y-2">
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+                <h3 class="text-xl font-bold uppercase tracking-wider mb-2 relative z-10">Studio Originals</h3>
+                <p class="text-gray-400 text-sm mb-6 relative z-10">Exclusive content created for the studio's YouTube channel.</p>
+                <div class="text-3xl font-bold text-brand-gold mb-6 relative z-10">₹5,000</div>
+                
+                <ul class="text-sm space-y-3 mb-8 flex-grow text-gray-300 relative z-10">
+                    <li class="flex items-start gap-2"><span>•</span> 90-minute recording</li>
+                    <li class="flex items-start gap-2"><span>•</span> 3-camera tailored setup</li>
+                    <li class="flex items-start gap-2"><span>•</span> Professional lighting</li>
+                    <li class="flex items-start gap-2"><span>•</span> Full episode editing</li>
+                    <li class="flex items-start gap-2"><span>•</span> Color grading & audio polish</li>
+                </ul>
+                <div class="text-[10px] text-gray-500 mb-6 italic uppercase relative z-10">In-house curated format</div>
+                <a href="#" class="relative z-10 block text-center bg-brand-gold text-black font-bold py-3 rounded-lg hover:bg-white transition-colors duration-300">Apply Now</a>
+            </div>
+
+            <div class="group relative bg-white/[0.03] backdrop-blur-xl p-8 rounded-2xl border border-white/10 flex flex-col transition-all duration-500 hover:bg-white/[0.08] hover:border-brand-gold/50 hover:-translate-y-2">
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+                <h3 class="text-xl font-bold uppercase tracking-wider mb-2 relative z-10">Studio Editing</h3>
+                <p class="text-gray-400 text-sm mb-6 relative z-10">For creators who already have footage and want finesse.</p>
+                <div class="text-3xl font-bold text-brand-gold mb-2 relative z-10"><span class="text-sm font-normal text-white">From</span> ₹3,000</div>
+                
+                <ul class="text-sm space-y-3 mt-4 mb-8 flex-grow text-gray-300 relative z-10">
+                    <li class="flex items-start gap-2"><span>•</span> High-end full episode editing</li>
+                    <li class="flex items-start gap-2"><span>•</span> Audio enhancement</li>
+                    <li class="flex items-start gap-2"><span>•</span> Reels / shorts editing</li>
+                </ul>
+                <div class="text-[10px] text-gray-500 mb-6 uppercase relative z-10">Extra 15 min ₹500 | Reels ₹300 each</div>
+                <a href="#" class="relative z-10 block text-center bg-brand-gold text-black font-bold py-3 rounded-lg hover:bg-white transition-colors duration-300">Enquire Now</a>
+            </div>
+
         </div>
     </div>
 </section>
 
 <section id="contact" class="py-20 px-6 max-w-6xl mx-auto border-t border-gray-700">
-    <div class="text-center mb-10" data-aos="fade-up">
-        <h2 class="text-3xl font-bold uppercase"><span class="chrome-text">Book </span>a  Slot</h2>
-        <p class="text-gray-400 mt-2">Check availability and send a request directly to our team.</p>
-    </div>
+        <div class="text-center mb-10" data-aos="fade-up">
+            <h2 class="text-3xl font-bold uppercase"><span class="chrome-text">Book </span>a Slot</h2>
+            <p class="text-gray-400 mt-2">Send a request directly to our team.</p>
+        </div>
+        
+        <form id="bookingForm" class="grid grid-cols-1 md:grid-cols-2 gap-6 glass-card p-10 rounded-xl" data-aos="fade-up">
+            <div class="flex flex-col gap-2">
+                <label class="text-xs uppercase text-brand-gold font-bold">Your Name</label>
+                <input type="text" name="user_name" placeholder="John Doe" required class="p-3 rounded bg-gray-700/30 border border-gray-600 focus:border-brand-gold outline-none text-white" />
+            </div>
+            <div class="flex flex-col gap-2">
+                <label class="text-xs uppercase text-brand-gold font-bold">Phone Number</label>
+                <input type="tel" name="user_phone" placeholder="9876543210" required class="p-3 rounded bg-gray-700/30 border border-gray-600 focus:border-brand-gold outline-none text-white" />
+            </div>
+            <div class="flex flex-col gap-2">
+                <label class="text-xs uppercase text-brand-gold font-bold">Select Service</label>
+                <select name="package" required class="p-3 rounded bg-gray-800 border border-gray-600 text-gray-300">
+                    <option value="Pro Rental">Pro Rental (₹1,500)</option>
+                    <option value="Bolta Ayushya">Bolta Ayushya (₹1,500)</option>
+                    <option value="Platinum Podcast">Platinum Podcast (₹6,000)</option>
+                    <option value="Platinum With Editing">Platinum With Editing (₹10,000)</option>
+                    <option value="Studio Original">Studio Original (₹5,000)</option>
+                    <option value="Studio Editing">Studio Editing (₹3,000)</option>
+                </select>
+            </div>
+            <div class="flex flex-col gap-2">
+                <label class="text-xs uppercase text-brand-gold font-bold">Date of Shoot</label>
+                <input type="date" id="bookingDate" name="booking_date" required class="p-3 rounded bg-gray-700/30 border border-gray-600 text-gray-300" />
+            </div>
+            <textarea name="message" placeholder="Notes..." class="md:col-span-2 p-3 rounded bg-gray-700/30 border border-gray-600 text-white" rows="3"></textarea>
+            
+            <div class="md:col-span-2">
+                <button type="submit" class="w-full chrome-bg text-black font-bold py-4 rounded hover:scale-[1.02] transition-all uppercase tracking-widest shadow-xl">
+                    Confirm & Send to WhatsApp
+                </button>
+                <p class="text-center text-xs text-gray-500 mt-4 italic">
+                    * You will receive an instant confirmation reply on our WhatsApp Business account.
+                </p>
+            </div>
+        </form>
+    </section>
 
-    <form id="bookingForm" class="grid grid-cols-1 md:grid-cols-2 gap-6 glass-card p-10 rounded-xl" data-aos="fade-up">
-        <div class="flex flex-col gap-2">
-            <label class="text-xs uppercase text-brand-gold font-bold">Your Name</label>
-            <input type="text" name="user_name" placeholder="John Doe" required class="p-3 rounded bg-gray-700/30 border border-gray-600 focus:border-brand-gold outline-none" />
-        </div>
-        <div class="flex flex-col gap-2">
-            <label class="text-xs uppercase text-brand-gold font-bold">Phone Number</label>
-            <input type="tel" name="user_phone" placeholder="9876543210" required class="p-3 rounded bg-gray-700/30 border border-gray-600 focus:border-brand-gold outline-none" />
-        </div>
-        <div class="flex flex-col gap-2">
-            <label class="text-xs uppercase text-brand-gold font-bold">Select Service</label>
-            <select name="package" required class="p-3 rounded bg-gray-800 border border-gray-600 text-gray-300">
-                <option value="" disabled selected>Choose a package</option>
-                <option value="Basic Studio">Basic Studio (₹1,500)</option>
-                <option value="Standard Video">Standard Video (₹3,000)</option>
-                <option value="Platinum Package">Platinum Package (₹6,000)</option>
-                <option value="Post Production">Post Production (₹3,000)</option>
-                <option value="Studio Originals">Studio Originals (₹5,000)</option>
-            </select>
-        </div>
-        <div class="flex flex-col gap-2">
-            <label class="text-xs uppercase text-brand-gold font-bold">Date of Shoot</label>
-            <input type="date" id="bookingDate" name="booking_date" required class="p-3 rounded bg-gray-700/30 border border-gray-600 text-gray-300" />
-        </div>
-        <textarea name="message" placeholder="Notes..." class="md:col-span-2 p-3 rounded bg-gray-700/30 border border-gray-600" rows="3"></textarea>
-        <button type="submit" class="md:col-span-2 chrome-bg text-black font-bold py-4 rounded hover:scale-[1.02] transition-all uppercase tracking-widest shadow-xl">
-            Confirm & Send to WhatsApp
-        </button>
-    </form>
-</section>
 
- <section id="location" class="py-20 px-6 border-t border-gray-800 bg-brand-card/30">
+
+ 
+ 
+
+<section id="location" class="py-20 px-6 border-t border-gray-800 bg-brand-card/30">
     <div class="max-w-7xl mx-auto">
         <div class="text-center mb-12" data-aos="fade-up">
-            <h2 class="text-3xl font-bold uppercase tracking-widest">Find <span class="chrome-text">Our Studio</span></h2>
-            <p class="text-gray-400 mt-2">📍 Vitthalwadi, Pune, Maharashtra 411051</p>
+            <h2 class="text-3xl font-bold uppercase tracking-widest">
+                Find <span class="chrome-text">Our Studio</span>
+            </h2>
+        </div>
+
+        <div class="map-container w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-700 mb-10" data-aos="zoom-in">
+           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.056027913295!2d73.83119427369883!3d18.48112117038103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfe01bf8734d%3A0x3ac27946e76cb4a1!2s4K%20FILM%20PRODUCTIONS%20Video%20Studio%20available%20for%20rent!5e0!3m2!1sen!2sin!4v1769278527435!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         
-        <div class="map-container w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-700" data-aos="zoom-in">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.0561402219323!2d73.83118891012677!3d18.48111608253227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfe01bf8734d%3A0x3ac27946e76cb4a1!2s4K%20FILM%20PRODUCTIONS%20Video%20Studio%20available%20for%20rent!5e0!3m2!1sen!2sin!4v1769145738535!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-            <div class="flex items-center gap-4 p-6 glass-card rounded-xl border border-gray-800">
-                <div class="text-3xl">📍</div>
-                <div><h4 class="font-bold">4K FILM Productions Studio</h4><p class="text-sm text-gray-400">Office no 301,Swami Krupa building,1,sinhagad road,near HDFCBank,vitthalwadi,Anandvihar Colony,Pune ,Maharashtra 411051</p></div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4 p-6 glass-card rounded-xl border border-gray-800 hover:border-brand-gold transition-colors duration-300">
+                <div class="text-3xl bg-gray-900 w-12 h-12 flex items-center justify-center rounded-lg shadow-inner">📍</div>
+                <div class="flex-1">
+                    <h4 class="font-bold text-white mb-1">4K FILM Productions Studio</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Office 301, Swami Krupa Bldg 1,<br>
+                        Sinhagad Road, near HDFC Bank,<br>
+                        Vitthalwadi, Pune, MH 411051
+                    </p>
+                </div>
             </div>
-            <div class="flex items-center gap-4 p-6 glass-card rounded-xl border border-gray-800">
-                <div class="text-3xl">🕒</div>
-                <div><h4 class="font-bold">Operations</h4><p class="text-sm text-gray-400">Open 7 Days (10AM - 9PM)</p></div>
+
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4 p-6 glass-card rounded-xl border border-gray-800 hover:border-brand-gold transition-colors duration-300">
+                <div class="text-3xl bg-gray-900 w-12 h-12 flex items-center justify-center rounded-lg shadow-inner">🕒</div>
+                <div>
+                    <h4 class="font-bold text-white mb-1">Operations</h4>
+                    <p class="text-sm text-gray-400">Open 7 Days</p>
+                    <p class="text-sm font-semibold text-brand-gold">10:00 AM — 09:00 PM</p>
+                </div>
             </div>
-            <div class="flex items-center gap-4 p-6 glass-card rounded-xl border border-gray-800">
-                <div class="text-3xl">📞</div>
-                <div><h4 class="font-bold">Contact</h4><p class="text-sm text-gray-400">+91 7391019731 ,<br> 9867302808</p></div>
+
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4 p-6 glass-card rounded-xl border border-gray-800 hover:border-brand-gold transition-colors duration-300">
+                <div class="text-3xl bg-gray-900 w-12 h-12 flex items-center justify-center rounded-lg shadow-inner">📞</div>
+                <div>
+                    <h4 class="font-bold text-white mb-1">Get In Touch</h4>
+                    <p class="text-sm text-gray-400 hover:text-white transition">+91 73910 19731</p>
+                    <p class="text-sm text-gray-400 hover:text-white transition">+91 98673 02808</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-
-
-
+<a href="https://wa.me/917391019731" target="_blank" id="whatsappFloat" aria-label="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.06 3.973L0 16l4.104-1.076a7.863 7.863 0 0 0 3.886 1.02h.001c4.368 0 7.926-3.558 7.93-7.93a7.856 7.856 0 0 0-2.32-5.688zM7.994 14.52a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+    </svg>
+</a>
 <div id="backToTop" class="chrome-bg text-black p-3 rounded-full shadow-lg font-bold">↑</div>
+
+ 
 
 <footer class="py-12 bg-brand-card border-t border-gray-700">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 px-6">
@@ -489,57 +539,65 @@
 </footer>
 
 <script>
-    const menuBtn = document.getElementById("menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
+  // Get the button and the menu
+const btn = document.getElementById('menu-btn');
+const menu = document.getElementById('mobile-menu');
 
-    menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-        mobileMenu.classList.toggle("flex");
+// Toggle the 'hidden' class on click
+btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+});
+
+// Close menu when a link is clicked (optional but recommended)
+const links = menu.querySelectorAll('a');
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        menu.classList.add('hidden');
     });
-
-    document.querySelectorAll('.mobile-link').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add("hidden");
-        });
-    });
-
+});
+    
     const btt = document.getElementById("backToTop");
     window.onscroll = function() {
         if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-            btt.style.display = "block";
+            btt.style.display = "flex";
         } else {
             btt.style.display = "none";
         }
     };
     btt.addEventListener("click", () => window.scrollTo({top: 0, behavior: 'smooth'}));
 
-    const dateInput = document.getElementById('bookingDate');
-    if(dateInput) {
-        const today = new Date().toISOString().split('T')[0];
-        dateInput.setAttribute('min', today);
-    }
-
+     
     document.getElementById('bookingForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = this.user_name.value;
-        const phone = this.user_phone.value;
-        const pkg = this.package.value;
-        const date = this.booking_date.value;
-        const msg = this.message.value || "No notes";
+            e.preventDefault();
 
-        const messageText = `*NEW STUDIO BOOKING*%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Package:* ${pkg}%0A*Date:* ${date}%0A*Notes:* ${msg}`;
-        const studioPhone = "917391019731"; 
-        
-        window.open(`https://wa.me/${studioPhone}?text=${messageText}`, '_blank');
-    });
+            // Replace with your actual WhatsApp Business number (with country code, no + sign)
+            const businessNumber = "917391019731"; 
+            
+            const formData = new FormData(this);
+            const name = formData.get('user_name');
+            const phone = formData.get('user_phone');
+            const service = formData.get('package');
+            const date = formData.get('booking_date');
+            const notes = formData.get('message') || "No notes";
+
+            const text = `*NEW STUDIO BOOKING*%0A` +
+                         `--------------------------%0A` +
+                         `*Name:* ${name}%0A` +
+                         `*Phone:* ${phone}%0A` +
+                         `*Service:* ${service}%0A` +
+                         `*Date:* ${date}%0A` +
+                         `*Notes:* ${notes}%0A` +
+                         `--------------------------%0A` +
+                         `_Sent from Website Form_`;
+
+            // Optional: User notification
+            alert("Redirecting to WhatsApp for instant confirmation...");
+
+            window.open(`https://wa.me/${businessNumber}?text=${text}`, '_blank');
+        });
 
     AOS.init({ duration: 1000, once: true });
 </script>
 
 </body>
-</html> 
-
-
-
-  
- 
+</html>
