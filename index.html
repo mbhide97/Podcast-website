@@ -818,8 +818,8 @@
                 <option value="Premium Creator">Premium Creator (₹12,999)</option>
                 <option value="Pro Rental">Pro Rental (₹1,500)</option>
                 <option value="Platinum Podcast">Platinum Podcast (₹6,000)</option>
-                <option value="Bolta Ayushya">Bolta Ayushya (₹1,500)</option>
-                <option value="A Bit Different">A Bit Different (₹6,000)</option>
+               <option value="Bolta Ayushya">Bolta Ayushya (₹1,500)</option>
+                <option value="A Bit Different">A Bit Different (₹6,000)</option>  
 
             </select>
         </div>
@@ -926,6 +926,18 @@
 </footer>
 
  <script>
+
+    function preSelect(val) {
+    const packageField = document.getElementById("package");
+
+    packageField.value = val;
+
+    document.getElementById("contact")
+      .scrollIntoView({
+        behavior: "smooth"
+      });
+} 
+
 document.getElementById('bookingForm').addEventListener('submit', async function(e) {
     e.preventDefault();
 
