@@ -793,7 +793,7 @@
 
  
 
-
+<!-- //form -->
 <section id="contact" class="py-20 px-6 max-w-6xl mx-auto border-t border-gray-700">
     <div class="text-center mb-10">
         <h2 class="text-3xl font-bold uppercase"><span class="chrome-text">Book </span>a Slot</h2>
@@ -925,7 +925,61 @@
     <p class="text-center text-gray-600 text-sm mt-10">© 2026 4K Film Production Studio — All Rights Reserved</p>
 </footer>
 
-<script>
+ <script>
+document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('user_name').value;
+    const phone = document.getElementById('user_phone').value;
+    const service = document.getElementById('package').value;
+    const date = document.getElementById('bookingDate').value;
+    const notes = document.getElementById('message').value;
+
+    // ✅ GOOGLE SHEET FIRST
+    try {
+        const res = await fetch(
+            "https://script.google.com/macros/s/AKfycbzoRTizUTAIei48rfl8Fi5zzfBMtubPd8DDjcgF7Y9ZI5-tE3Jrkp9JdhVfZrZ0HTnaTw/exec",
+            {
+                method: "POST",
+                body: new URLSearchParams({
+                    name: name,
+                    phone: phone,
+                    package: service,
+                    date: date,
+                    message: notes
+                })
+            }
+        );
+
+        const data = await res.text();
+        console.log("Saved to Sheet ✅", data);
+
+    } catch (err) {
+        console.log("Error ❌", err);
+    }
+
+    // ✅ WHATSAPP AFTER SHEET SAVE
+    const myNumber = "917391019731";
+
+    const text = `*NEW BOOKING REQUEST*%0A%0A
+*Name:* ${name}%0A
+*Phone:* ${phone}%0A
+*Package:* ${service}%0A
+*Shoot Date:* ${date}%0A
+*Notes:* ${notes || 'N/A'}`;
+
+    const waUrl = `https://wa.me/${myNumber}?text=${text}`;
+
+    window.open(waUrl, '_blank');
+
+    alert("Booking Sent Successfully 🚀");
+
+    document.getElementById("bookingForm").reset();
+});
+</script>
+ 
+
+<!-- <script>
 // ✅ Mobile Menu
 const btn = document.getElementById('menu-btn');
 const menu = document.getElementById('mobile-menu');
@@ -962,23 +1016,27 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
     const date = document.getElementById('bookingDate').value;
     const notes = document.getElementById('message').value;
 
-    // 🔥 Google Sheet ला data send
-    fetch("https://script.google.com/macros/s/AKfycbx_gpfo1ASPSoeHwDGt2bsXrJx61oINi9wgXZkgjIi6yoXpddaLorVCl0EbEj5-Cq9Lrg/exec", {
-        method: "POST",
-        body: JSON.stringify({
-            name: name,
-            phone: phone,
-            package: service,
-            date: date,
-            message: notes
-        })
+     
+fetch("https://script.google.com/macros/s/AKfycbwqRtkIoD_DOHbPen5-IZjtxIN-C2hQcssfEoITXXnypfMbrxQzT7J3CfthIVPD5dtnEA/exec", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        name: name,
+        phone: phone,
+        package: service,
+        date: date,
+        message: notes
     })
-    .then(() => {
-        console.log("Saved to sheet ✅");
-    })
-    .catch(() => {
-        console.log("Error ❌");
-    });
+})
+.then(res => res.text())
+.then(data => {
+    console.log("Saved to Sheet ✅", data);
+})
+.catch(err => {
+    console.log("Error ❌", err);
+});
 
     // 🔥 WhatsApp Message
     const myNumber = "917391019731";
@@ -1005,7 +1063,7 @@ function preSelect(val) {
 
 // ✅ Animation
 AOS.init({ duration: 1000, once: true });
-</script>
+</script> -->
 
 </body>
 </html>
