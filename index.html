@@ -4,17 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>4K Film Production Podcast Studio</title>
-
-    <!-- ✅ Google Analytics - G-P6VZ2329RN -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P6VZ2329RN"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-P6VZ2329RN');
-    </script>
-    <!-- ✅ Google Analytics End -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -194,10 +183,10 @@
             100% { opacity: 0; }
         }
 
-        #photo1 { animation: fadeSlide 12s infinite; animation-delay: 0s; background:url('set-1.jpeg'); }
-        #photo2 { animation: fadeSlide 12s infinite; animation-delay: 3s; background:url('set-3.png'); }
-        #photo3 { animation: fadeSlide 12s infinite; animation-delay: 6s; background:url('set-4.png'); }
-        #photo4 { animation: fadeSlide 12s infinite; animation-delay: 9s; background:url('set-5.png'); }
+        #photo1 { animation: fadeSlide 12s infinite; animation-delay: 0s; background:url(royal-set.webp); }
+        #photo2 { animation: fadeSlide 12s infinite; animation-delay: 3s; background:url(mordern-minimal.webp); }
+        #photo3 { animation: fadeSlide 12s infinite; animation-delay: 6s; background:url(the-den.webp); }
+        #photo4 { animation: fadeSlide 12s infinite; animation-delay: 9s; background:url(Corporate\ chik.webp); }
 
         .hover-gold:hover {
             background-color: #CBA135 !important;
@@ -238,7 +227,7 @@
 
 <div class="h-20 md:h-24"></div>
  
- <section id="home" class="relative w-full h-[80vh] bg-cover bg-center flex items-end justify-center pt-32" style="background-image:url(final-img.jpeg);">
+ <section id="home" class="relative w-full h-[80vh] bg-cover bg-center flex items-end justify-center pt-32" style="background-image:url(final-img.webp);">
     <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
     
     <div class="relative z-10 px-10 max-w-4xl text-center flex flex-col items-center" data-aos="fade-up">
@@ -267,7 +256,10 @@
         
         <div class="w-full flex justify-center">
             <div class="w-full md:w-3/4 aspect-video rounded-xl overflow-hidden glass-card shadow-2xl border border-white/10" data-aos="zoom-in">
-<iframe width="100%" height="100%" src="https://www.youtube.com/embed/jRwTK-Tn-y8?si=ipu6w_TJuQq2Iqrz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>            </div>
+            <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/t6Slzay0y5A?si=UvXLeV6VziIpInGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jRwTK-Tn-y8?si=ipu6w_TJuQq2Iqrz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>            </div>
+
+        </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -313,7 +305,7 @@
             <div class="bg-zinc-900/30 border border-white/10 rounded-[2.5rem] overflow-hidden mb-12 shadow-2xl">
                 <div class="flex flex-col lg:flex-row">
                     <div class="lg:w-1/2 relative min-h-[400px]">
-                        <img src="about us.png" alt="4K Production Studio" class="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000">
+                        <img src="about us.webp" alt="4K Production Studio" class="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000">
                         <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/80 via-transparent to-transparent"></div>
                         <div class="absolute bottom-8 left-8">
                             <span class="bg-brand-gold text-black text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-xl">
@@ -385,7 +377,7 @@
 
             <div class="flex flex-col md:flex-row justify-between items-center gap-8 bg-brand-gold p-10 rounded-[2.5rem] text-black">
                 <div>
-                    <h3 class="text-3xl font-black uppercase leading-none mb-2">Let's Tell Your Story</h3>
+                    <h3 class="text-3xl font-black uppercase leading-none mb-2">Let’s Tell Your Story</h3>
                     <p class="font-bold italic opacity-70 uppercase text-xs">Because every vision deserves a beautiful frame.</p>
                 </div>
                 <a href="#pricing-suite" class="bg-black text-white font-bold py-4 px-10 rounded-xl hover:scale-105 transition-transform uppercase text-xs tracking-widest shadow-2xl">
@@ -405,14 +397,14 @@
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center mb-8 max-w-4xl mx-auto">
             <div class="w-full p-6 glass-card gold-border rounded-lg transform hover:scale-105 transition-all duration-300 group hover-gold" data-aos="fade-up">
-              <div class="w-32 h-32 mx-auto mb-6"><img class="rounded-full w-full h-full object-cover" src="Dhanesh.jpg.jpeg"></div>
+              <div class="w-32 h-32 mx-auto mb-6"><img class="rounded-full w-full h-full object-cover" src="Dhanesh.jpg.webp"></div>
               <h3 class="text-xl font-bold text-white group-hover:text-black">DHANESH KULKARNI</h3>
               <p class="text-gray-300 group-hover:text-black">( Host )</p>
               <p class="text-gray-400 mt-2 text-sm group-hover:text-black">Dhanesh is an industry professional with 20+ years in communications.</p>
             </div>
 
             <div class="w-full p-6 glass-card gold-border rounded-lg transform hover:scale-105 transition-all duration-300 group hover-gold" data-aos="fade-up" data-aos-delay="200">
-              <div class="w-32 h-32 mx-auto mb-6"><img class="rounded-full w-full h-full object-cover" src="pratik mundkar1.jpeg"></div>
+              <div class="w-32 h-32 mx-auto mb-6"><img class="rounded-full w-full h-full object-cover" src="pratik mundkar1.webp"></div>
               <h3 class="text-xl font-bold text-white group-hover:text-black">PRATIK MUNDKAR</h3>
               <p class="text-gray-300 group-hover:text-black">( Host )</p>
               <p class="text-gray-400 mt-2 text-sm group-hover:text-black">Entrepreneur known for engaging long-form conversations.</p>
@@ -421,7 +413,7 @@
 
         <div class="flex flex-wrap justify-center gap-8 text-center">
                <div class="w-full md:w-[30%] p-6 glass-card gold-border rounded-lg transform hover:scale-105 transition-all duration-300 group hover-gold" data-aos="fade-up" data-aos-delay="100">
-              <div class="w-32 h-32 mx-auto mb-6"><img class="rounded-full w-full h-full object-cover" src="prems.jpeg"></div>
+              <div class="w-32 h-32 mx-auto mb-6"><img class="rounded-full w-full h-full object-cover" src="prems.webp"></div>
               <h3 class="text-xl font-bold text-white group-hover:text-black">PREM SAWANT</h3>
               <p class="text-gray-300 group-hover:text-black">(  Production Head )</p>
               <p class="text-gray-400 mt-2 text-sm group-hover:text-black">Literature scholar exploring human struggles and victories.</p>
@@ -429,7 +421,7 @@
 
 
             <div class="w-full md:w-[30%] p-6 glass-card gold-border rounded-lg transform hover:scale-105 transition-all duration-300 group hover-gold" data-aos="fade-up">
-              <div class="w-32 h-32 mx-auto mb-6"><img class="rounded-full w-full h-full object-cover" src="prasad kulkarni.png"></div>
+              <div class="w-32 h-32 mx-auto mb-6"><img class="rounded-full w-full h-full object-cover" src="prasad kulkarni.webp"></div>
               <h3 class="text-xl font-bold text-white group-hover:text-black">PRASAD KULKARNI</h3>
               <p class="text-gray-300 group-hover:text-black">( Production Co-ordinator )</p>
               <p class="text-gray-400 mt-2 text-sm group-hover:text-black">
@@ -439,7 +431,7 @@
        
 
              <div class="w-full md:w-[30%] p-6 glass-card gold-border rounded-lg transform hover:scale-105 transition-all duration-300 group hover-gold" data-aos="fade-up" data-aos-delay="200">
-              <div class="w-32 h-32 mx-auto mb-6"><img class="rounded-full w-full h-full object-cover" src="pranit namjoshi.png"></div>
+              <div class="w-32 h-32 mx-auto mb-6"><img class="rounded-full w-full h-full object-cover" src="pranit namjoshi.webp"></div>
               <h3 class="text-xl font-bold text-white group-hover:text-black">PRANIT NAMJOSHI</h3>
               <p class="text-gray-300 group-hover:text-black">( Production Consultant )</p>
               <p class="text-gray-400 mt-2 text-sm group-hover:text-black">
@@ -464,7 +456,7 @@
                 </div>
 
                 <div class="relative w-full sm:w-2/5 h-44 sm:h-auto overflow-hidden bg-zinc-900">
-                    <img src="studioOriginal1.png" 
+                    <img src="bolta ayushya.webp" 
                          alt="Indian podcast creator in studio" 
                          class="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-[#0a0a0a] via-transparent to-transparent"></div>
@@ -499,7 +491,7 @@
                 </div>
 
                 <div class="relative w-full sm:w-2/5 h-44 sm:h-auto overflow-hidden bg-zinc-900">
-                    <img src="studiooriginal2.jpeg" 
+                    <img src="abitdiffreent.webp" 
                          alt="Indian cinematographer in production studio" 
                          class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-[#0a0a0a] via-transparent to-transparent"></div>
@@ -793,7 +785,7 @@
 
  
 
-<!-- //form -->
+
 <section id="contact" class="py-20 px-6 max-w-6xl mx-auto border-t border-gray-700">
     <div class="text-center mb-10">
         <h2 class="text-3xl font-bold uppercase"><span class="chrome-text">Book </span>a Slot</h2>
@@ -818,8 +810,8 @@
                 <option value="Premium Creator">Premium Creator (₹12,999)</option>
                 <option value="Pro Rental">Pro Rental (₹1,500)</option>
                 <option value="Platinum Podcast">Platinum Podcast (₹6,000)</option>
-               <option value="Bolta Ayushya">Bolta Ayushya (₹1,500)</option>
-                <option value="A Bit Different">A Bit Different (₹6,000)</option>  
+                <option value="Bolta Ayushya">Bolta Ayushya (₹1,500)</option>
+                <option value="A Bit Different">A Bit Different (₹6,000)</option>
 
             </select>
         </div>
@@ -925,157 +917,138 @@
     <p class="text-center text-gray-600 text-sm mt-10">© 2026 4K Film Production Studio — All Rights Reserved</p>
 </footer>
 
- <script>
 
-    function preSelect(val) {
-    const packageField = document.getElementById("package");
-
-    packageField.value = val;
-
-    document.getElementById("contact")
-      .scrollIntoView({
-        behavior: "smooth"
-      });
-} 
-
-document.getElementById('bookingForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    const name = document.getElementById('user_name').value;
-    const phone = document.getElementById('user_phone').value;
-    const service = document.getElementById('package').value;
-    const date = document.getElementById('bookingDate').value;
-    const notes = document.getElementById('message').value;
-
-    // ✅ GOOGLE SHEET FIRST
-    try {
-        const res = await fetch(
-            "https://script.google.com/macros/s/AKfycbzoRTizUTAIei48rfl8Fi5zzfBMtubPd8DDjcgF7Y9ZI5-tE3Jrkp9JdhVfZrZ0HTnaTw/exec",
-            {
-                method: "POST",
-                body: new URLSearchParams({
-                    name: name,
-                    phone: phone,
-                    package: service,
-                    date: date,
-                    message: notes
-                })
-            }
-        );
-
-        const data = await res.text();
-        console.log("Saved to Sheet ✅", data);
-
-    } catch (err) {
-        console.log("Error ❌", err);
-    }
-
-    // ✅ WHATSAPP AFTER SHEET SAVE
-    const myNumber = "917391019731";
-
-    const text = `*NEW BOOKING REQUEST*%0A%0A
-*Name:* ${name}%0A
-*Phone:* ${phone}%0A
-*Package:* ${service}%0A
-*Shoot Date:* ${date}%0A
-*Notes:* ${notes || 'N/A'}`;
-
-    const waUrl = `https://wa.me/${myNumber}?text=${text}`;
-
-    window.open(waUrl, '_blank');
-
-    alert("Booking Sent Successfully 🚀");
-
-    document.getElementById("bookingForm").reset();
-});
-</script>
- 
-
-<!-- <script>
+<script>
 // ✅ Mobile Menu
 const btn = document.getElementById('menu-btn');
 const menu = document.getElementById('mobile-menu');
 
-btn.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-});
-
-const links = menu.querySelectorAll('a');
-links.forEach(link => {
-    link.addEventListener('click', () => {
-        menu.classList.add('hidden');
+if (btn && menu) {
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
     });
-});
 
-// ✅ Back to Top Button
-const btt = document.getElementById("backToTop");
-window.onscroll = function() {
-    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-        btt.style.display = "flex";
-    } else {
-        btt.style.display = "none";
-    }
-};
-btt.addEventListener("click", () => window.scrollTo({top: 0, behavior: 'smooth'}));
-
-// ✅ MAIN BOOKING FORM
-document.getElementById('bookingForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const name = document.getElementById('user_name').value;
-    const phone = document.getElementById('user_phone').value;
-    const service = document.getElementById('package').value;
-    const date = document.getElementById('bookingDate').value;
-    const notes = document.getElementById('message').value;
-
-     
-fetch("https://script.google.com/macros/s/AKfycbwqRtkIoD_DOHbPen5-IZjtxIN-C2hQcssfEoITXXnypfMbrxQzT7J3CfthIVPD5dtnEA/exec", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        name: name,
-        phone: phone,
-        package: service,
-        date: date,
-        message: notes
-    })
-})
-.then(res => res.text())
-.then(data => {
-    console.log("Saved to Sheet ✅", data);
-})
-.catch(err => {
-    console.log("Error ❌", err);
-});
-
-    // 🔥 WhatsApp Message
-    const myNumber = "917391019731";
-
-    const text = `*NEW BOOKING REQUEST*%0A%0A
-*Name:* ${name}%0A
-*Phone:* ${phone}%0A
-*Package:* ${service}%0A
-*Shoot Date:* ${date}%0A
-*Notes:* ${notes || 'N/A'}`;
-
-    const waUrl = `https://wa.me/${myNumber}?text=${text}`;
-
-    alert("Booking Sent Successfully 🚀");
-    window.open(waUrl, '_blank');
-
-    document.getElementById("bookingForm").reset();
-});
-
-// ✅ Preselect package
-function preSelect(val) {
-    document.getElementById('package').value = val;
+    const links = menu.querySelectorAll('a');
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.add('hidden');
+        });
+    });
 }
 
-// ✅ Animation
-AOS.init({ duration: 1000, once: true });
-</script> -->
+// ✅ Back To Top
+const btt = document.getElementById("backToTop");
 
+if (btt) {
+    window.addEventListener("scroll", () => {
+        if (
+            document.body.scrollTop > 500 ||
+            document.documentElement.scrollTop > 500
+        ) {
+            btt.style.display = "flex";
+        } else {
+            btt.style.display = "none";
+        }
+    });
+
+    btt.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
+
+// ✅ Package Select + Scroll
+function preSelect(val) {
+    const packageField = document.getElementById("package");
+
+    if (packageField) {
+        packageField.value = val;
+    }
+
+    const contact = document.getElementById("contact");
+
+    if (contact) {
+        contact.scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+}
+
+// ✅ Booking Form Submit
+const bookingForm = document.getElementById("bookingForm");
+
+if (bookingForm) {
+
+    bookingForm.addEventListener("submit", async function (e) {
+
+        e.preventDefault();
+
+        const name = document.getElementById("user_name").value;
+        const phone = document.getElementById("user_phone").value;
+        const service = document.getElementById("package").value;
+        const date = document.getElementById("bookingDate").value;
+        const notes = document.getElementById("message").value;
+
+        // ✅ Save To Google Sheet
+        try {
+
+            const response = await fetch(
+                "https://script.google.com/macros/s/AKfycbzoRTizUTAIei48rfl8Fi5zzfBMtubPd8DDjcgF7Y9ZI5-tE3Jrkp9JdhVfZrZ0HTnaTw/exec",
+                {
+                    method: "POST",
+                    body: new URLSearchParams({
+                        name: name,
+                        phone: phone,
+                        package: service,
+                        date: date,
+                        message: notes
+                    })
+                }
+            );
+
+            const result = await response.text();
+            console.log("Saved To Sheet ✅", result);
+
+        } catch (error) {
+
+            console.error("Sheet Error ❌", error);
+
+        }
+
+        // ✅ WhatsApp Message
+        const myNumber = "917391019731";
+
+        const text =
+`*NEW BOOKING REQUEST*
+
+*Name:* ${name}
+*Phone:* ${phone}
+*Package:* ${service}
+*Shoot Date:* ${date}
+*Notes:* ${notes || 'N/A'}`;
+
+        const waUrl =
+            `https://wa.me/${myNumber}?text=${encodeURIComponent(text)}`;
+
+        window.open(waUrl, "_blank");
+
+        alert("Booking Sent Successfully 🚀");
+
+        bookingForm.reset();
+
+    });
+
+}
+
+// ✅ AOS Animation
+if (typeof AOS !== "undefined") {
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+}
+</script>
 </body>
 </html>
